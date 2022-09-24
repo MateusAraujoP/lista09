@@ -14,7 +14,7 @@ public class Lista09 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(" Exercicio 1:\n");
+              System.out.println(" Exercicio 1:\n");
         int[][] matriz1 = new int[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -39,22 +39,32 @@ public class Lista09 {
             }
         }
         System.out.println("\nSoma dos elementos abaixo da diagonal principal:\n" + somaAbaixoD);
-
+         
         System.out.println("\n Exercicio 3:");
         int[][] matrizCartela = new int[5][5];
         double doubleNumAleatorio;
         int intNumAleatorio;
-        boolean repetido = false;
+        boolean repetido;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 do {
+                    repetido = false;
                     doubleNumAleatorio = Math.random() * 100;
                     intNumAleatorio = (int) doubleNumAleatorio;
                     for (int k = i; k >= 0; k--) {
-                        for (int l = j - 1; l >= 0; l--) {
-                            if (matrizCartela[i][j] == matrizCartela[k][l]) {
-                                repetido = true;
-                                break;
+                        if (k == i) {
+                            for (int l = j - 1; l >= 0; l--) {
+                                if (intNumAleatorio == matrizCartela[k][l]) {
+                                    repetido = true;
+                                    break;
+                                }
+                            }
+                        } else {
+                            for (int l = 4; l >= 0; l--) {
+                                if (intNumAleatorio == matrizCartela[k][l]) {
+                                    repetido = true;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -83,7 +93,7 @@ public class Lista09 {
         }
         System.out.println("|\n'----'----'----'----'----'");
 
-        System.out.println("\n Exercicio 4:");
+         System.out.println("\n Exercicio 4:");
         int[][] matriz4 = new int[5][4];
         int maiorNota = 0;
         int alunoMaiorN = 0;
@@ -104,6 +114,6 @@ public class Lista09 {
             }
         }
         System.out.println("\nMatricula do aluno com a maior nota:\n" + matriz4[alunoMaiorN][0]);
-        System.out.println("\nMedia Aritmetica das notas finais:\n" + (mediaAriNF / 5));
+        System.out.println("\nMedia Aritmetica das notas finais:\n" + (mediaAriNF / 5)); 
     }
 }
